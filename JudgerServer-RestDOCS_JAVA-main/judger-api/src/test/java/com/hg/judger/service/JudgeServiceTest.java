@@ -21,14 +21,31 @@ class JudgeServiceTest {
 
     @Test
     void run() throws Exception {
-        String code = "#include<stdio.h>\n" +
+        String c_code = "#include<iostream>\n" +
                 "int main(){\n" +
                 "\tint a, b;\n" +
                 "\tscanf(\"%d %d\", &a, &b);\n" +
                 "\tprintf(\"%d\", a+b);\n" +
                 "\treturn 0;\n" +
                 "}";
-        SubmissionInfo submissionInfo = new SubmissionInfo(code, "c", "1 2", "3");
+        String cpp_code = "#include<iostream>\n" +
+                "int main(){\n" +
+                "\tint a, b;\n" +
+                "\tscanf(\"%d %d\", &a, &b);\n" +
+                "\tprintf(\"%d\", a+b);\n" +
+                "\treturn 0;\n" +
+                "}";
+        String java_code = "import java.util.Scanner;\n" +
+                "\n" +
+                "class Main {  \n" +
+                "  public static void main(String args[]) { \n" +
+                "    Scanner scan = new Scanner(System.in);\n" +
+                "    System.out.println(scan.nextInt() + scan.nextInt());\n" +
+                "  } \n" +
+                "}";
+        String python_code = "x, y = map(int, raw_input().split(' '))\n" +
+                "print x + y";
+        SubmissionInfo submissionInfo = new SubmissionInfo(java_code, "java", "1 2", "3");
         ScoringResult scoringResult = judgeService.run(submissionInfo);
         assertThat(scoringResult.getScoringCode()).contains("CORRECT");
     }
