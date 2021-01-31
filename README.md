@@ -13,9 +13,7 @@ git clone https://github.com/dungbik/judger-docker.git
 
 cd judger-docker
 
-docker build --tag judger-docker .
-
-docker run -v C:\judger-docker\judger:judger-docker judger-docker
+./build.bat
 ```
 
 ### 3. [Demo](https://docs.onlinejudge.me/#/judger/api)
