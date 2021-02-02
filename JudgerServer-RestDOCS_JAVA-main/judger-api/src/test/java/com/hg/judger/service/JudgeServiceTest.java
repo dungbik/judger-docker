@@ -21,7 +21,7 @@ class JudgeServiceTest {
 
     @Test
     void run() throws Exception {
-        String c_code = "#include<iostream>\n" +
+        String c_code = "#include<stdio.h>\n" +
                 "int main(){\n" +
                 "\tint a, b;\n" +
                 "\tscanf(\"%d %d\", &a, &b);\n" +
@@ -45,7 +45,7 @@ class JudgeServiceTest {
                 "}";
         String python_code = "x, y = map(int, raw_input().split(' '))\n" +
                 "print x + y";
-        SubmissionInfo submissionInfo = new SubmissionInfo(java_code, "java", "1 2", "3");
+        SubmissionInfo submissionInfo = new SubmissionInfo(c_code, "c", "1 2", "3");
         ScoringResult scoringResult = judgeService.run(submissionInfo);
         assertThat(scoringResult.getScoringCode()).contains("CORRECT");
     }
