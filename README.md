@@ -21,15 +21,17 @@ cd judger-docker
 - compile (c언어)
 
 ```sh
-docker run --rm -v C:\judger-docker\judger:/judger gcc gcc /judger/demo/main.c -o /judger/demo/main
+docker run --rm -v C:\judger-docker\judger:/judger judger-docker gcc /judger/demo/main.c -o /judger/demo/main
 ```
 
 - judger (c언어)
 
 ```sh
-docker run --rm -v C:\judger-docker\judger:/judger gcc /judger/libjudger.so --max_cpu_time=1000 --max_real_time=2000 --max_memory=536870912 --max_process_number=200 --max_output_size=16384 --exe_path="/judger/demo/main" --input_path="/judger/demo/1.in" --output_path="/judger/demo/1.out" --error_path="/judger/demo/1.out" --uid=0 --gid=0 --seccomp_rule_name="c_cpp"
+docker run --rm -v C:\judger-docker\judger:/judger judger-docker /judger/libjudger.so --max_cpu_time=1000 --max_real_time=2000 --max_memory=536870912 --max_process_number=200 --max_output_size=16384 --exe_path="/judger/demo/main" --input_path="/judger/demo/1.in" --output_path="/judger/demo/1.out" --error_path="/judger/demo/1.out" --uid=0 --gid=0 --seccomp_rule_name="c_cpp"
 ```
 
 ### 4. Todo
 
-- Judger 실행 환경 도커파일 생성 (현재는 gcc 이미지로 바로 실행 -> 자바 컴파일 불가)
+- [x] judger-docker 이미지를 실행환경으로 사용
+- [x] Judger 소스코드 git clone을 이용해 다운
+- [ ] judger-docker 이미지에 자바 실행환경 구축
