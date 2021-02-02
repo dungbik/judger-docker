@@ -1,7 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update
-RUN apt-get install libseccomp-dev -y
-RUN apt-get install cmake -y
+RUN apt-get update && apt-get install -y cmake python libseccomp-dev gcc g++ git
+# strace python3 python3-pip && pip3 install setuptools --upgrade
 
-CMD ["/judger-docker/build.sh" ]
+CMD ["/judger-docker/Scripts/build.sh" ]
