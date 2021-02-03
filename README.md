@@ -21,13 +21,13 @@ cd judger-docker
 - compile (c언어)
 
 ```sh
-docker run --rm -v C:\judger-docker\judger:/judger judger-docker gcc /judger/demo/main.c -o /judger/demo/main
+docker run --rm -v C:\judger-docker\judger-docker:/judger-docker judger-docker gcc /judger-docker/Judger/demo/main.c -o /judger-docker/Judger/demo/main
 ```
 
 - judger (c언어)
 
 ```sh
-docker run --rm -v C:\judger-docker\judger:/judger judger-docker /judger/libjudger.so --max_cpu_time=1000 --max_real_time=2000 --max_memory=536870912 --max_process_number=200 --max_output_size=16384 --exe_path="/judger/demo/main" --input_path="/judger/demo/1.in" --output_path="/judger/demo/1.out" --error_path="/judger/demo/1.out" --uid=0 --gid=0 --seccomp_rule_name="c_cpp"
+docker run --rm -v C:\judger-docker\judger-docker:/judger-docker judger-docker /judger-docker/libjudger.so --max_cpu_time=1000 --max_real_time=2000 --max_memory=536870912 --max_process_number=200 --max_output_size=16384 --exe_path="/judger-docker/Judger/demo/main" --input_path="/judger-docker/Judger/demo/1.in" --output_path="/judger-docker/Judger/demo/1.out" --error_path="/judger-docker/Judger/demo/1.out" --uid=0 --gid=0 --seccomp_rule_name="c_cpp"
 ```
 
 ### 4. Todo
