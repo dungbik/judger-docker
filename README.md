@@ -11,9 +11,7 @@
 cd C:\
 git clone https://github.com/dungbik/judger-docker.git
 
-cd judger-docker
-
-./build.bat
+build.bat 실행
 ```
 
 ### 3. [Demo](https://docs.onlinejudge.me/#/judger/api)
